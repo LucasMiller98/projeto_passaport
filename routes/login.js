@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 
-router.get('/', (req, res) => { // rederiza a tela com o user
+router.get('/', (req, res) => {
   res.render('login', { message: null })
 })
 
-router.post('/', (req, res) => { // Submição do form
-  console.log(req.body)
-  res.redirect('/login')
-})
+router.post('/', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login'
+}))
 
 module.exports = router
