@@ -1,14 +1,10 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const flash = require('express-flash')
 const session = require('express-session')
-const session_crud = require('express-session')
-const dotenv = require('./config')
-const flash = require('connect-flash')
-
-const passport = require('passport'); 
 
 const app = express();
 
@@ -21,26 +17,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cookieParser('naoTaoSecreta'));
-app.use(session_crud({ cookie: { maxAge: 60000 } }))
+app.use(session({ cookie: { maxAge: 60000 } }))
 app.use(flash())
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ 
-  secret: dotenv,
-  cookie: {
-    maxAge: 2 * 60 * 1000,
-  },
-  resave: false,
-  saveUninitialized: false
-}))
+// const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const alunosRouter = require('./routes/alunos');
 
-app.use(passport.initialize())
-app.use(passport.session())
-
-require('./services/auth')(passport)
-
-require('./routes/config')(app)
+// app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/alunos', alunosRouter);
+app.use('/alunos/form', alunosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
