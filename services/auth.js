@@ -4,13 +4,13 @@ module.exports = function(passport) {
   
   const LocalStrategy = require('passport-local').Strategy
 
-  let dao = require('../database/dao')
+  const dao = require('../database/dao')
 
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user.id)   
   })
 
-  passport.deserializeUser(function(id, done) {
+  passport.deserializeUser((id, done) => {
     dao.findById(id)
       .then(([rows]) => {
         let user = rows[0]
@@ -42,12 +42,6 @@ module.exports = function(passport) {
             done(null, false)
           break
         }
-
-        // if(bcrypt.compareSync(password, user.userpassword)) {
-        //   return done(null, user)
-        // }else{
-        //   return done(null, false)
-        // } 
 
       }).catch(error => {
         toastify({

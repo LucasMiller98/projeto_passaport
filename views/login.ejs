@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/styles.css">
-  <title>Login</title>
+  <title><%= title %> </title>
 </head>
 <body>
   <main>
@@ -20,13 +20,22 @@
     <% } %>
       
     <form action="/login" class="form-login" method="post">
-      <h1>Web2</h1>
+      <h1>Alunos</h1>
       <input type="text" placeholder="username" autocomplete="off" name="username">
       <input type="password" placeholder="password" name="password">
     
-      <button type="submit">
+      <button type="submit" id="btn-login">
         Log in  
       </button>
+
+      <div class="separator">ou</div>
+      
+      <form action="/cadastro" method="post">
+        <button type="submit" id="btn-signUp">
+          Sign up
+        </button>
+      </form>
+
     </form>
   </main>
 </body>

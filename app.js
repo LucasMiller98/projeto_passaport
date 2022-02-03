@@ -1,14 +1,15 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser')
 const logger = require('morgan');
 const session = require('express-session')
-const session_crud = require('express-session')
+const cookieParser = require('cookie-parser')
 const dotenv = require('./config')
-const flash = require('connect-flash')
-
+const flash = require('express-flash')
 const passport = require('passport'); 
+const session_crud = require('express-session')
+// const cookieParser_crud = require('cookie-parser')
+// const daoCad = require('./database/dao')
 
 const app = express();
 
@@ -24,6 +25,13 @@ app.use(cookieParser('naoTaoSecreta'));
 app.use(session_crud({ cookie: { maxAge: 60000 } }))
 app.use(flash())
 
+// const usersRouter = require('./routes/users');
+const alunosRouter = require('./routes/alunos');
+
+// app.use('/users', usersRouter);
+app.use('/', alunosRouter);
+app.use('/form', alunosRouter);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ 
@@ -38,7 +46,10 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+
 require('./services/auth')(passport)
+
+// require('./services/cad')(passport)
 
 require('./routes/config')(app)
 

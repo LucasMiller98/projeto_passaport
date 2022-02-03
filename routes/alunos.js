@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
       res.render('alunos/list', { alunos: rows })
       console.log(rows)
     }).catch(err =>{
-      console.log(err)
+      console.error(err.message)
       res.render('alunos/list', { alunos: [] })
     })
 })
@@ -24,7 +24,7 @@ router.post('/delete', (req, res) => {
     }).catch( err => {
       console.log(err.message)
       req.flash('error', 'Ocorreu um erro na exclusão do aluno.')
-      res.redirect('/alunos')
+      res.redirect('/')
     })
 })
 
@@ -60,7 +60,7 @@ router.post('/save', (req, res) => {
 
   operacao(req.body)
     .then(([result]) => {
-      console.log(result)
+      console.log(req.body)
       req.flash('success', success)
       res.redirect('/')
   }).catch( err => {
@@ -79,10 +79,10 @@ router.get('/search', (req, res) => {
       }).catch( err => {
         console.log(err.message)
         req.flash('error', 'Não foi possível efetuar a busca por nome')
-        res.redirect('/alunos')
+        res.redirect('/')
       })
   }else{
-    res.redirect('/alunos')
+    res.redirect('/')
   }
   
 })
