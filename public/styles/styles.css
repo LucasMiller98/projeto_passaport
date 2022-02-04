@@ -119,7 +119,7 @@ input[type='email']::placeholder {
   width: 37.7%;
   height: 91.7%;
   position: relative;
-  background: #f1f1f1;
+  background: #fff;
   position: relative;
 }
 
@@ -129,7 +129,8 @@ input[type='email']::placeholder {
   top: 0;
   margin-top: 1rem;
   border-bottom: 1.7px solid #1877f2;
-  width: 23.7%;
+  width: 33.7%;
+  font-size: 2.9rem;
 }
 
 .form-cadastro button {
