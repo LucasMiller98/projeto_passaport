@@ -50,18 +50,6 @@ router.get('/form', async (req, res) => {
 router.post('/save', (req, res) => {
   console.log(req.body)
   
-  // switch(req.body.id) {
-  //   case true:
-  //     operacao = alunosDao.update
-  //     success = 'Dados atualizados com sucesso.'
-  //   break
-
-  //   case false:
-  //     operacao = alunosDao.save
-  //     success = 'Dados salvos com sucesso.'
-  //   break
-  // }
-  
   if(req.body.id) {
     operacao = alunosDao.update
     success = 'Dados atualizados com sucesso.'
