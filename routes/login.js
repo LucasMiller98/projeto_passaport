@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login'
+  successRedirect: '/alunos',
+  failureRedirect: '/'
 }))
 
 module.exports = router

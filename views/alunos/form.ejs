@@ -61,12 +61,12 @@
           <div class="col-auto container-nav">
             <h1 class="col-8">Cadastro de Alunos</h1>
             
-            <a href="/login" class="btn-leave">Sair</a>
-            <a href="/" class="btn-leave">Voltar</a>
+            <a href="/alunos" class="btn-leave">Voltar</a>
+            <a href="/" class="btn-leave">Sair</a>
           </div>
       </nav>
 
-        <form method="post" action="/save">
+        <form method="post" action="/alunos/save">
           <input type="hidden" name="id" value="<%= aluno.id %>">
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nome</label>

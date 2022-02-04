@@ -20,11 +20,11 @@ router.post('/delete', (req, res) => {
       }else{
         req.flash('success', `O regitro com o id ${req.body.id} não foi encontrado no bando.`)
       }
-      res.redirect('/')
+      res.redirect('/alunos')
     }).catch( err => {
       console.log(err.message)
       req.flash('error', 'Ocorreu um erro na exclusão do aluno.')
-      res.redirect('/')
+      res.redirect('/alunos')
     })
 })
 
@@ -50,6 +50,18 @@ router.get('/form', async (req, res) => {
 router.post('/save', (req, res) => {
   console.log(req.body)
   
+  // switch(req.body.id) {
+  //   case true:
+  //     operacao = alunosDao.update
+  //     success = 'Dados atualizados com sucesso.'
+  //   break
+
+  //   case false:
+  //     operacao = alunosDao.save
+  //     success = 'Dados salvos com sucesso.'
+  //   break
+  // }
+  
   if(req.body.id) {
     operacao = alunosDao.update
     success = 'Dados atualizados com sucesso.'
@@ -62,11 +74,11 @@ router.post('/save', (req, res) => {
     .then(([result]) => {
       console.log(req.body)
       req.flash('success', success)
-      res.redirect('/')
+      res.redirect('/alunos')
   }).catch( err => {
     console.log(err)
     req.flash('error', `Não foi possível cadastrar o aluno.`)
-    res.redirect('/')
+    res.redirect('/alunos')
   }) 
 })
 
@@ -79,7 +91,7 @@ router.get('/search', (req, res) => {
       }).catch( err => {
         console.log(err.message)
         req.flash('error', 'Não foi possível efetuar a busca por nome')
-        res.redirect('/')
+        res.redirect('/alunos')
       })
   }else{
     res.redirect('/')

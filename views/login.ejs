@@ -19,7 +19,7 @@
       </p>
     <% } %>
       
-    <form action="/login" class="form-login" method="post">
+    <form action="/" class="form-login" method="post">
       <h1>Alunos</h1>
       <input type="text" placeholder="username" autocomplete="off" name="username">
       <input type="password" placeholder="password" name="password">
@@ -30,12 +30,7 @@
 
       <div class="separator">ou</div>
       
-      <form action="/cadastro" method="post">
-        <button type="submit" id="btn-signUp">
-          Sign up
-        </button>
-      </form>
-
+      <a href="/cadastro" id="btn-signUp">Sign up</a>
     </form>
   </main>
 </body>

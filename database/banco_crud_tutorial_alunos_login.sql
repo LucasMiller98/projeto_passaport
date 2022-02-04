@@ -1,5 +1,4 @@
 create database login;
-create database tutorial_web2;
 
 use login;
 
@@ -29,5 +28,3 @@ INSERT INTO alunos (nome, email, curso) VALUES ('Maria', 'maria@gmail.com', 'Qua
 select * from alunos;
 
 delete from alunos where id = '6';
-
-use tutorial_web2;

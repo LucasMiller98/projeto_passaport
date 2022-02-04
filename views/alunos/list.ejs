@@ -55,18 +55,18 @@
         </a>
         <h1 class="col-5">Listagem de Alunos</h1>
 
-          <form method="GET" action="/search" class="col-4 row">
+          <form method="GET" action="/alunos/search" class="col-4 row">
             <div class="col-auto container-nav">
               <input type="search" name="nome" class="form-control" placeholder="Buscar">
 
               <button type="submit" class="col-auto btn btn-primary">
                 <i class="bi bi-search"></i>
               </button>
-              <a href="/login" class="btn-leave">Sair</a>
+              <a href="/" class="btn-leave" title="sair"><i class="bi bi-box-arrow-left"></i></a>
             </div>
           </form>
           
-          <a href="/form" class="col-1 btn btn-primary">Novo&nbsp;&nbsp;<i class="bi bi-plus-square-fill"></i></a>
+          <a href="/alunos/form" class="col-1 btn btn-primary">Novo&nbsp;&nbsp;<i class="bi bi-plus-square-fill"></i></a>
       </nav>
       
       <div class="row">
@@ -104,14 +104,14 @@
                 <td>
 
                   <div class="row">
-                    <form class="col-auto" action="/delete" method="post">
+                    <form class="col-auto" action="/alunos/delete" method="post">
                       <input type="hidden" name="id" value="<%= aluno.id %>">
                       <button type="submit" class="btn btn-danger">
                         <i class="bi bi-trash"></i>
                       </button>
                     </form>
   
-                    <a class="col-auto btn btn-primary" href="/form?id=<%= aluno.id %>"><i class="bi bi-pencil-square"></i></a>
+                    <a class="col-auto btn btn-primary" href="/alunos/form?id=<%= aluno.id %>"><i class="bi bi-pencil-square"></i></a>
                   </div>
                    
                   

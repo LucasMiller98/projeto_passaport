@@ -11,15 +11,34 @@
   <title><%= title %></title>
 </head>
 <body>
-  <main>
+  <main class="content-main-cadaster">
+    <a href="/" class="back-button-cadaster">Voltar</a>
     
     <form action="/cadastro" method="post" class="form-cadastro">
       <h1>Cadastro</h1>
-      <input autocomplete="off" type="text" name="username" placeholder="username" value="">
-      <input autocomplete="off" type="text" name="login" placeholder="login" value="">
-      <input autocomplete="off" type="password" name="password" placeholder="password" value="">
+      <input 
+        autocomplete="off" 
+        type="text" 
+        name="username" 
+        placeholder="username" 
+        value=""
+      >
+      <input 
+        autocomplete="off" 
+        type="text" 
+        name="login" 
+        placeholder="login" 
+        value=""
+      >
+      <input 
+        autocomplete="off" 
+        type="password" 
+        name="password" 
+        placeholder="password" 
+        value=""
+      >
       
-      <button type="submit" >
+      <button type="submit">
         Sign up
       </button>
     </form>

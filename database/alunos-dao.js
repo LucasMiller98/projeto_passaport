@@ -26,10 +26,6 @@ let operations = {
   search: function(nome) {
     return pool.promise().query('select * from alunos where nome like ?', [ '%' + nome + '%' ])
   },
-
-  // saveOnDatabase: (users) => {
-  //   return pool.promise().execute('insert into users (username, login, userpassword) values (?, ?, ?)', [users.username, users.login, users.userpassword])
-  // }
 }
 
 module.exports = operations

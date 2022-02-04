@@ -1,6 +1,5 @@
 module.exports = function(app) {
 
-  // const usersRouter = require('./users');
   const login = require('./login');
   const alunos = require('./alunos')
   const cadastro = require('./cadastro')
@@ -8,12 +7,11 @@ module.exports = function(app) {
   const middlewareAutorization = (req, res, next) => {
     if(req.isAuthenticated()) return next()
     
-    return res.redirect('/login')
+    return res.redirect('/')
   }
 
-  app.use('/login', login)
+  app.use('/', login)
   app.use('/cadastro', cadastro)
-  app.use('/', middlewareAutorization, alunos)
-  app.use('/form', alunos)
-  // app.use('/users', middlewareAutorization, usersRouter);
+  app.use('/alunos', middlewareAutorization,alunos)
+  app.use('/alunos/form', alunos)
 }
